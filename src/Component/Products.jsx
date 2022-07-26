@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../Redux/action"
 import ProductCard from './ProductCard';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Products() {
     const dispatch = useDispatch();
@@ -50,6 +51,7 @@ export default function Products() {
      }
     return (
         <>
+      
             <Row>
                 <Col sm={4} >
                     <Form>
@@ -57,7 +59,7 @@ export default function Products() {
                             placeholder="Search Prodcuts"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
-                            className='w-25 m-3'
+                            className='w-50 m-3'
                             onChange={inputSearch} />
                     </Form>
                     <Button variant='primary' className='m-3' onClick={priceSort}>Price</Button>

@@ -9,6 +9,10 @@ import Products from './Component/Products';
 import Cart from './Component/Cart';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './Component/Navbar';
+import Login from './Component/Login';
+import ProductsDetails from './Component/ProductsDetails';
+import 'react-toastify/dist/ReactToastify.css';
+import Checkout from './Component/Checkout';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,9 +20,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Login/>} />
           <Route path="/cart" element={<Cart />} />
           <Route path='/products' element={<Products />} />
+          <Route path='/product/:id' element={<ProductsDetails/>}/>
+          <Route path="/checkout" element={<Checkout/>}/>
+
         </Routes>
       </Router>
 

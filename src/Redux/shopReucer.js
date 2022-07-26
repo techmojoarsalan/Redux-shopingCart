@@ -1,10 +1,10 @@
-import React from 'react'
 import * as actionTypes from "./actionType"
 const initialState = {
     products: [],
-    cart: [],
+    cart: JSON.parse(localStorage.getItem("cart"))  ||[],
     isLoading: false,
     currentItem: null,
+   
 }
 export const shopReucer = (state = initialState, action) => {
     switch (action.type) {
@@ -29,14 +29,15 @@ export const shopReucer = (state = initialState, action) => {
                             : item
                     )
                     : [...state.cart, { ...item, qty: 1 }],
+                   
+                    
             }
-            case actionTypes.REMOVE_CART:
-                return {
-                    ...state,
-                    cart:state.cart.filter((item)=>item.id!==action.payload),
-                  };
+        case actionTypes.REMOVE_CART:
+            return {
+                ...state,
+                cart: state.cart.filter((item) => item.id !== action.payload),
+            };
         default:
             return state
     }
-
 }
